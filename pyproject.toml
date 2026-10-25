@@ -1,0 +1,30 @@
+[project]
+name = "videocut"
+version = "0.1.0"
+description = "長い録画から区間の抜き出し・削除を行う動画カットツール"
+authors = [
+    { name = "jam0824", email = "session_fixation@hotmail.co.jp" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "av>=19.0.2",
+    "numpy>=2.5.4",
+    "pyside6>=6.12.0",
+]
+
+[project.gui-scripts]
+videocut = "videocut.app:main"
+
+[build-system]
+requires = ["uv_build>=0.8.17,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-qt>=4.5.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+qt_api = "pyside6"
